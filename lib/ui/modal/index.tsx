@@ -34,11 +34,13 @@ const FlashpayModals = ({
 
     if (wallet == null) return;
 
+    setModalType("processing");
+
     try {
-      const sender = await wallet.connect(setModalType);
+      const sender = await wallet.connect();
       const response = await axiosJs.post<IResponseData>(
         URL,
-        { ...payload, sender },
+        { ...payload, sender, txn_type: "normal" },
         { headers: { "x-public-key": processKey } }
       );
 

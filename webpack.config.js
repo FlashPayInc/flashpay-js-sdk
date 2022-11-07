@@ -31,7 +31,7 @@ module.exports = (env) => {
   mode: 'production',
   output: {
     filename: "index.min.js",
-    path: path.resolve(__dirname, "build"),
+    path: path.resolve(__dirname, "dist"),
     globalObject: "this",
     library: "FlashPay",
     libraryExport: "default",

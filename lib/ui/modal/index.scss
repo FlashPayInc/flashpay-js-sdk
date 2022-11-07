@@ -1,14 +1,16 @@
 .flashpay-modal {
   @font-face {
     font-family: "GeneralSans-Regular";
-    src: url("./assets/fonts/GeneralSans-Regular.ttf") format("truetype");
+    src: url("https://res.cloudinary.com/dybhjquqy/raw/upload/v1667727391/fonts/GeneralSans-Regular_ab9ihp.ttf")
+      format("truetype");
     font-weight: 400;
     font-display: swap;
     font-style: normal;
   }
   @font-face {
     font-family: "GeneralSans-Medium";
-    src: url("./assets/fonts/GeneralSans-Medium.ttf") format("truetype");
+    src: url("https://res.cloudinary.com/dybhjquqy/raw/upload/v1667727370/fonts/GeneralSans-Medium_ye99eb.ttf")
+      format("truetype");
     font-weight: 500;
     font-display: swap;
     font-style: normal;
@@ -17,7 +19,7 @@
   // VARIABLES
   $bgColor: #fff;
   $subColor: #6d6d6d;
-  $zIndex: 9999 * 9999;
+  $zIndex: 8;
   $sans: "GeneralSans-Regular", sans-serif;
   $sansmed: "GeneralSans-Medium", sans-serif;
 

@@ -26,6 +26,15 @@ const FlashpayWalletConnectModal = ({
 }: ConnectWalletModalProps) => {
   const [option, setOption] = useState("");
 
+  const getAssetShortName = (asset_id: number) => {
+    const assetsForNetwork = ALGORAND_ASSETS[network];
+    if (assetsForNetwork.hasOwnProperty(asset_id)) {
+      return assetsForNetwork[asset_id].shortName;
+    } else {
+      return "**UNSUPPORTED ASSET**";
+    }
+  };
+
   return (
     <>
       <div className="flashpay-modal">
@@ -38,9 +47,9 @@ const FlashpayWalletConnectModal = ({
           </div>
           <div className="main">
             <p>
-              {`You're about to pay ${data?.amount} ${
-                ALGORAND_ASSETS[network][data.asset]["shortName"]
-              }`}
+              {`You're about to pay ${data?.amount} ${getAssetShortName(
+                data.asset
+              )}`}
             </p>
           </div>
           <div className="sub">Select an option to continue</div>

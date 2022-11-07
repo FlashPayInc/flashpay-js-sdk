@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 import algosdk, { Algodv2 } from "algosdk";
-import { ALGOD_CLIENT, AXIOS_OPTIONS } from "./constants";
+import { ALGOD_CLIENT, ALGORAND_ASSETS, AXIOS_OPTIONS } from "./constants";
 import { callable, Data, IRequestData } from "./interface";
 
 import openFlashpayModal from "./ui";
@@ -38,18 +38,26 @@ export class FlashPay {
   };
 
   public async setup(payload: IRequestData, key: string, callback: callable) {
-    const network = key.startsWith("pk_test") ? "testnet" : "mainnet";
-    if (network !== this.network) {
-      throw new Error("API Key doesn't match specified network");
-    }
-
-    openFlashpayModal(
-      payload,
-      key,
-      this.network,
-      callback,
-      this.createTransaction,
-      this.axios
+    const networkFromAPIKey = key.startsWith("pk_test") ? "testnet" : "mainnet";
+    const isSupportedAsset = ALGORAND_ASSETS[this.network].hasOwnProperty(
+      payload.asset
     );
+    if (networkFromAPIKey === this.network && isSupportedAsset) {
+      openFlashpayModal(
+        payload,
+        key,
+        this.network,
+        callback,
+        this.createTransaction,
+        this.axios
+      );
+    } else {
+      callback(
+        "",
+        new Error(
+          "API Key doesn't match specified network / Invalid asset provided"
+        )
+      );
+    }
   }
 }

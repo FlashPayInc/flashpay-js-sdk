@@ -21,8 +21,6 @@ export interface IRequestData {
   asset: number;
   recipient: string;
   amount: string;
-  txn_type: "payment_link" | "normal";
-  payment_link?: string;
 }
 
 export interface IResponseData {
@@ -33,7 +31,7 @@ export interface IResponseData {
 
 export interface IWallet {
   wallet: any;
-  connect(setModalType: any): Promise<string>;
+  connect(): Promise<string>;
   signTransaction(txn: any): Promise<string>;
   disconnect(): Promise<void>;
 }
