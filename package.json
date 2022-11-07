@@ -1,6 +1,6 @@
 {
   "name": "@flashpay-inc/sdk",
-  "version": "0.1.0",
+  "version": "0.2.3",
   "description": "A Typescript SDK for FlashPay Payment Integration",
   "main": "dist/index.min.js",
   "types": "dist/types/index.d.ts",
