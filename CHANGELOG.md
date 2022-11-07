@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Resolved bug where providing an invalid asset causes the entire application to break.
 - SDK now works as expected.
+- Bundle no longer contains font files.
+
+### Added
+- Included README to describe SDK & its usage.
 
 
 ## [0.2.2] - 2022-11-06
